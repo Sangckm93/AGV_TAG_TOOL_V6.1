@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_background"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LayoutConstraint2"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/symbol"
+                app:layout_constraintBottom_toTopOf="@+id/Linear1"
+                tools:layout_editor_absoluteX="16dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="16dp"
+                android:text="AGV TAG TOOL"
+                android:textColor="#FFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/Linear1"
+                app:layout_constraintStart_toEndOf="@+id/imageView" />
+            <LinearLayout
+                android:id="@+id/Linear1"
+                android:layout_marginTop="94dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/search_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="20">
+
+                <ImageButton
+                    android:id="@+id/btnInputDone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher_foreground_left" />
+
+                <SearchView
+                    android:id="@+id/searchviewInputTag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="16"
+                    android:queryHint="Input Tag here"
+                    android:inputType="textUri"
+                    android:background="@drawable/custom_searchview"
+                    android:searchIcon="@null"
+                    android:queryBackground="@android:color/transparent"
+                    android:iconifiedByDefault="false">
+                </SearchView>
+                <ImageButton
+                    android:id="@+id/btnAddFavorite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher_foreground_save" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/LayoutConstraint2"
+            android:layout_above="@id/btn_writeTag">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:weightSum="6">
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <Button
+                        android:id="@+id/btnCopyTag"
+                        android:background="@drawable/shape_edit_button"
+                        android:layout_alignParentRight="true"
+                        android:text="COPY TAG"
+                        android:textColor="#FFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"/>
+
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3.5"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/shape_readtag"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Tag Read Value"
+                        android:textColor="#FFF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txt_TagContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="9"
+                        android:gravity="center"
+                        android:text="Waiting\nTag"
+                        android:textColor="#FFF"
+                        android:textSize="50sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/shape_status"
+                    android:orientation="vertical"
+                    android:weightSum="6">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:text="Activities Status"
+                        android:textColor="#FFF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="No Activity"
+                        android:textColor="#FFF"
+                        android:textSize="30sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_writeTag"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_above="@+id/bottom_navigation"
+            android:background="@drawable/custom_write_button"
+            android:text="WRITE TAG"
+            android:textColor="#FFF"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@color/colorMenuBar"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_navigation">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <ListView
+            android:id="@+id/listViewRecentTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_writeTag"
+            android:layout_below="@id/LayoutConstraint2"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="4dp"
+
+            android:background="@drawable/listview_background"
+            android:foregroundGravity="bottom"
+            android:padding="8dp"
+            android:visibility="gone">
+            <!--android:background="#0D47A1"-->
+
+        </ListView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
